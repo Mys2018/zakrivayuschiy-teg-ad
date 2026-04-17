@@ -47,7 +47,6 @@
   }
 }
 
-/* like hover */
 .like-icon:hover .main-body {
   fill: var(--themes-main-color);
   transition: fill 0.3s 0.05s linear;
@@ -58,7 +57,6 @@
   transition: fill 0.3s linear;
 }
 
-/* like active */
 .like-icon:active .main-body {
   fill: var(--themes-animation-color);
   transition: fill 0.3s 0.05s linear;
@@ -69,7 +67,6 @@
   transition: fill 0.3s linear;
 }
 
-/* like click */
 .like-icon .core {
   transition: fill 0.3s 0.03s linear;
 }

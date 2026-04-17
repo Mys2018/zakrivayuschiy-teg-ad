@@ -161,10 +161,7 @@
   text-shadow: 0 0 1px var(--themes-backgroud-color);
 }
 
-@supports ((
-   (text-stroke: 1px var(--themes-backgroud-color)) or
-   (-webkit-text-stroke: 1px var(--themes-backgroud-color))
-) and (mix-blend-mode: hard-light)) {
+@supports (((text-stroke: 1px var(--themes-backgroud-color)) or (-webkit-text-stroke: 1px var(--themes-backgroud-color))) and (mix-blend-mode: hard-light)) {
   .post__cover__watermark {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--themes-backgroud-color);
@@ -226,7 +223,7 @@
 }
 
 .card__icon-button:focus-within::before {
-  opacity: 100;
+  opacity: 1;
   z-index: 0;
 }
 
@@ -251,11 +248,6 @@
   cursor: pointer;
 }
 
-.footer__button {
-  gap: 8px;
-  min-height: 55px;
-  padding: 15px 20px;
-}
 
 .button:focus-visible {
   box-shadow: 2px 2px var(--themes-main-color);
@@ -308,15 +300,8 @@
 
   .button svg {
     transition: none;
+    color: var(--themes-button-text-color);
     mix-blend-mode: difference;
-  }
-
-  .button:hover .button__text {
-    color: var(--themes-button-text-color);
-  }
-
-  .button:hover svg {
-    color: var(--themes-button-text-color);
   }
 
   .button__text {
@@ -324,45 +309,53 @@
   }
 }
 
-/* dialog */
-dialog::backdrop {
-  opacity: 0.75;
-  background: var(--themes-main-color, #000);
+.button__icon {
+  width: 21px;
+  height: 21px;
 }
 
-.dialog {
-  width: calc(100vw * (352 / 1440));
-  min-width: 341px;
-  border: 2px solid var(--themes-main-color);
-  padding: 30px;
-  background: var(--themes-backgroud-color);
+.button__footer {
+  gap: 8px;
+  min-height: 55px;
+  padding: 15px 20px;
 }
 
-.dialog__container {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  color: var(--themes-main-color);
-}
-
-.dialog__warning {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  font-family: var(--font-second), serif;
-  font-size: 14px;
-  line-height: 150%;
+.modal {
+  border: 2px solid var(--themes-main-color, #000000);
+  padding: 25px 30px;
+  color: var(--themes-main-color, #000000);
+  font-family: var(--font-second), sans-serif;
+  line-height: 1.5;
   text-transform: uppercase;
+  background: var(--themes-backgroud-color, #ffffff);
+  max-inline-size: 355px;
 }
 
-.dialog__button {
-  justify-content: center;
+.modal[open] {
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  gap: 30px;
+}
+
+.modal::backdrop {
+  opacity: 0.75;
+  background: var(--themes-main-color, #000000);
+}
+
+.modal__content {
+  display: flex;
   align-items: center;
-  gap: 10px;
-  width: 100%;
-  min-height: 38px;
-  padding: 9px 17px;
+  gap: 16px;
+}
+
+.modal__icon {
+  flex-shrink: 0;
+  inline-size: 39px;
+  block-size: 39px;
+}
+
+.modal__button {
+  inline-size: 100%;
 }
 
 .image_1 {
@@ -397,22 +390,22 @@ dialog::backdrop {
   filter: contrast(130%) blur(0.05rem);
 }
 
-@media (width <= 450px) {
+@media (width <=450px) {
   .page {
     width: 100%;
     min-width: 320px;
   }
 
-  .footer__button {
+  .button__footer {
     flex-direction: column;
   }
 
-  .footer__button svg {
+  .button__footer svg {
     width: 28px;
     height: 28px;
   }
 
-  .dialog {
+  .modal {
     padding: 30px 40px;
   }
 }
