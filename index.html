@@ -309,8 +309,8 @@
           этот мир постоянно меняется. Познать его полностью не получится, но
           это тот случай, когда важен сам процесс познания. Ведь часто путь —
           и есть результат.
-        </p>Хочу такую клавиатуру<p>
         </p>
+        <p>Хочу такую клавиатуру</p>
         <div class="post__buttons">
           <button type="button" class="card__icon-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="like-icon" width="39" height="36" viewBox="0 0 39 36">
@@ -333,7 +333,7 @@
       </div>
     </article>
     <div class="main__footer">
-      <button type="button" class="button button__footer" onclick="window['dialog-id'].showModal()"
+      <button type="button" class="button button__footer"
         aria-controls="dialog-id">
         <svg class="button__icon" viewbox="0 0 39 39">
           <use href="./svg/floppy.svg#floppy" />
@@ -348,10 +348,26 @@
         </svg>
         <span>Вставьте дискету, чтобы продолжить</span>
       </div>
-      <button type="button" class="button modal__button" onclick="window['dialog-id'].close()">
-        <span class="button__text">ок</span>
+      <button type="button" class="button modal__button">
+        <span class="button__text">ОК</span>
       </button>
     </dialog>
+    </main>
     <script src="./scripts/like.js"></script>
+    <script>
+      const dialog = document.querySelector('#dialog-id');
+      const saveButton = document.querySelector('.button__footer');
+      const closeButton = document.querySelector('.modal__button');
+
+      saveButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        dialog.showModal();
+      });
+
+      closeButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        dialog.close();
+      });
+    </script>
   </body>
 </html>
