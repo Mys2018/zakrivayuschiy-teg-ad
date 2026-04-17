@@ -516,7 +516,7 @@
           <button
           class="button footer__button"
           type="button"
-          onclick="window['dialog-save'].showModal();"
+          onclick="event.preventDefault(); window['dialog-save'].showModal();"
           aria-controls="dialog-save"
         >
           <svg
@@ -549,7 +549,7 @@
           <button
             type="submit"
             class="button dialog__button"
-            onclick="window['dialog-save'].close()"
+            onclick="event.preventDefault(); window['dialog-save'].close()"
           >
             <span class="button__text">ОК</span>
           </button>
